@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071b3b">
+<title>GOBEX STORE — Official Hub</title>
+<style>
+:root{--navy:#06152f;--blue:#147bff;--blue2:#53b5ff;--gold:#ffd45b;--gold2:#ffefb0;--ink:#eef6ff;--muted:#9db3d2;--line:rgba(130,183,255,.2)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:var(--ink);background:radial-gradient(ellipse at 15% 0%,#123d78 0,transparent 42%),radial-gradient(ellipse at 95% 35%,#29345b 0,transparent 36%),linear-gradient(145deg,#030b1c,#081d3c 55%,#071329);padding:28px 16px 100px}
+.wrap{width:min(100%,680px);margin:auto}
+.profile{display:flex;align-items:center;gap:15px;padding:20px;border:1px solid var(--line);border-radius:23px;background:linear-gradient(130deg,rgba(19,67,125,.72),rgba(8,25,53,.88));box-shadow:0 18px 55px #0005}
+.avatar{width:68px;height:68px;flex:none;display:grid;place-items:center;border-radius:21px;background:linear-gradient(145deg,var(--gold),#d99516);color:#09234b;font-weight:1000;font-size:24px;letter-spacing:-1px;box-shadow:0 7px 22px #ffce4a38}
+.name-line{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+h1{font-size:clamp(20px,5vw,27px);margin:0;font-weight:850;letter-spacing:.2px}
+.badge{display:inline-grid;place-items:center;width:19px;height:19px;border-radius:50%;background:#168bff;color:white;font-size:13px;font-weight:900;box-shadow:0 0 13px #168bff66}
+.sub{color:var(--muted);font-size:13px;margin-top:7px;display:flex;align-items:center;gap:7px}
+.dot{width:8px;height:8px;border-radius:50%;background:#168bff;box-shadow:0 0 10px #168bff}
+.status{font-weight:700;color:#cde6ff}
+.note{font-size:11px;color:#91a9c9;margin-top:5px}
+.intro{text-align:center;margin:42px 0 25px}
+.eyebrow{color:var(--gold);font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase}
+.intro h2{font-size:clamp(21px,5vw,29px);margin:9px 0 0;line-height:1.3}
+.intro h2 span{color:var(--gold)}
+.links{display:grid;gap:15px}
+.link-card{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:19px 20px;border-radius:18px;text-decoration:none;color:var(--ink);border:1px solid rgba(255,211,91,.28);background:linear-gradient(110deg,rgba(19,56,104,.92),rgba(8,24,51,.96));box-shadow:0 10px 28px #0003;transition:transform .18s,border-color .18s,box-shadow .18s}
+.link-card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 14px 30px #0005,0 0 18px #ffc94b18}
+.link-card:focus-visible,.support:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+.card-label{font-size:10px;letter-spacing:1.7px;text-transform:uppercase;color:var(--gold);font-weight:800;margin-bottom:6px}
+.card-title{font-size:15px;font-weight:800;line-height:1.35}
+.card-sub{font-size:11px;color:var(--muted);margin-top:5px}
+.arrow{width:34px;height:34px;flex:none;border-radius:12px;display:grid;place-items:center;color:#082047;background:linear-gradient(135deg,var(--gold2),var(--gold));font-size:19px;font-weight:900}
+.trust{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:32px 0 25px}
+.pill{padding:8px 11px;border-radius:10px;background:rgba(15,50,91,.85);border:1px solid var(--line);font-size:11px;font-weight:750;color:#e5f2ff}
+.pill span{color:var(--gold);margin-left:3px}
+.footer{text-align:center;border-top:1px solid var(--line);padding-top:22px;margin-top:25px}
+.footer-name{font-size:19px;font-weight:900;letter-spacing:.8px}
+.footer-sub{margin-top:10px;color:var(--gold2);font-size:13px;font-weight:800;letter-spacing:1px}
+.disclaimer{font-size:10px;color:#8299b8;margin-top:14px;line-height:1.6}
+.support{position:fixed;right:18px;bottom:18px;display:flex;align-items:center;gap:9px;padding:12px 15px;border-radius:16px;background:linear-gradient(135deg,#19c878,#087d52);color:white;text-decoration:none;font-weight:850;font-size:12px;box-shadow:0 9px 28px #0007;border:1px solid #8bffd0}
+.support-icon{font-size:19px}
+@media(max-width:420px){body{padding-left:12px;padding-right:12px}.profile{padding:16px}.avatar{width:59px;height:59px}.link-card{padding:16px}.support{right:12px;bottom:12px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="profile">
+    <div class="avatar" aria-label="Logo GX">GX</div>
+    <div>
+      <div class="name-line">
+        <h1>GOBEX STORE</h1>
+        <span class="badge" title="Ikon dekoratif, bukan verifikasi WhatsApp resmi" aria-label="Ikon centang dekoratif">✓</span>
+      </div>
+      <div class="sub"><span class="dot" id="statusDot"></span><span class="status" id="statusText">Mengecek koneksi...</span></div>
+      <div class="note">Status koneksi perangkat/browser — bukan status online WhatsApp.</div>
+    </div>
+  </header>
+
+  <section class="intro">
+    <div class="eyebrow">Welcome to Gobex Store</div>
+    <h2>GRUP GOBEX STORE<br><span>DI BAWAH INI ⬇️</span></h2>
+  </section>
+
+  <section class="links" aria-label="Daftar grup WhatsApp">
+    <a class="link-card" href="https://chat.whatsapp.com/BeOdCyKwtrI23BtNGqEAGS?s=cl&amp;p=a&amp;iam=2" target="_blank" rel="noopener noreferrer">
+      <div><div class="card-label">Grup WhatsApp 01</div><div class="card-title">GC UTAMA GOBEXSTR17</div><div class="card-sub">Ketuk untuk bergabung ke grup</div></div><span class="arrow" aria-hidden="true">↗</span>
+    </a>
+    <a class="link-card" href="https://chat.whatsapp.com/LGMOdIbGSL3FoLFVoZj3MX?s=cl&amp;p=a&amp;iam=2" target="_blank" rel="noopener noreferrer">
+      <div><div class="card-label">Grup WhatsApp 02</div><div class="card-title">DUNIA CUAN GOBEX STORE</div><div class="card-sub">Ketuk untuk bergabung ke grup</div></div><span class="arrow" aria-hidden="true">↗</span>
+    </a>
+    <a class="link-card" href="https://chat.whatsapp.com/Hnl3p3xom3rILpJMc5FTAH?s=cl&amp;p=a&amp;iam=2" target="_blank" rel="noopener noreferrer">
+      <div><div class="card-label">Grup WhatsApp 03</div><div class="card-title">JB ALLGAME GOBEXSTR V1</div><div class="card-sub">Ketuk untuk bergabung ke grup</div></div><span class="arrow" aria-hidden="true">↗</span>
+    </a>
+    <a class="link-card" href="https://chat.whatsapp.com/Hnl3p3xom3rILpJMc5FTAH?s=cl&amp;p=a&amp;iam=2" target="_blank" rel="noopener noreferrer">
+      <div><div class="card-label">Grup WhatsApp 04</div><div class="card-title">JB MENUJU RAMDHAN BEXZ</div><div class="card-sub">Ketuk untuk bergabung ke grup</div></div><span class="arrow" aria-hidden="true">↗</span>
+    </a>
+  </section>
+
+  <section class="trust" aria-label="Keunggulan layanan">
+    <div class="pill">AMANAH <span>✓</span></div>
+    <div class="pill">PROSES CEPAT <span>✓</span></div>
+    <div class="pill">INSTANT <span>✓</span></div>
+    <div class="pill">PRAKTIS <span>✓</span></div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-name">GOBEX STORE <span class="badge" title="Ikon dekoratif, bukan verifikasi resmi">✓</span></div>
+    <div class="footer-sub">GOBEX OFFICIAL <span class="badge" title="Ikon dekoratif, bukan verifikasi resmi">✓</span></div>
+    <div class="disclaimer">Ikon centang pada halaman ini hanya elemen desain dan bukan tanda verifikasi atau afiliasi resmi WhatsApp.</div>
+  </footer>
+</main>
+
+<a class="support" href="https://wa.me/6285863550806" target="_blank" rel="noopener noreferrer" aria-label="Hubungi pusat bantuan melalui WhatsApp">
+  <span class="support-icon" aria-hidden="true">▢</span><span>PUSAT BANTUAN</span>
+</a>
+
+<script>
+function updateConnection(){
+  const online = navigator.onLine;
+  const text = document.getElementById('statusText');
+  const dot = document.getElementById('statusDot');
+  text.textContent = online ? 'ONLINE' : 'OFFLINE';
+  dot.style.background = online ? '#168bff' : '#ff4545';
+  dot.style.boxShadow = online ? '0 0 10px #168bff' : '0 0 10px #ff4545';
+}
+window.addEventListener('online', updateConnection);
+window.addEventListener('offline', updateConnection);
+updateConnection();
+</script>
+</body>
+</html>
